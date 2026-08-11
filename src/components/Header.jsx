@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../assets/Logo';
 import { useLanguage } from '../i18n/LanguageContext';
 import '../styles/components/Header.css';
@@ -11,13 +11,24 @@ const LANGUAGES = [
 
 function Header() {
   const { lang, setLang, t } = useLanguage();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setMenuOpen(false);
   };
+
+  const navItems = [
+    { id: 'home', label: t.nav.home },
+    { id: 'about', label: t.nav.about },
+    { id: 'certifications', label: t.nav.certifications },
+    { id: 'skills', label: t.nav.skills },
+    { id: 'projects', label: t.nav.projects },
+    { id: 'contact', label: t.nav.contact },
+  ];
 
   return (
     <header className="header">
@@ -26,14 +37,14 @@ function Header() {
           <div className="logo">
             <Logo />
           </div>
+
           <div className="nav-wrapper">
-            <nav className="nav">
-              <button onClick={() => scrollToSection('home')}>{t.nav.home}</button>
-              <button onClick={() => scrollToSection('about')}>{t.nav.about}</button>
-              <button onClick={() => scrollToSection('certifications')}>{t.nav.certifications}</button>
-              <button onClick={() => scrollToSection('skills')}>{t.nav.skills}</button>
-              <button onClick={() => scrollToSection('projects')}>{t.nav.projects}</button>
-              <button onClick={() => scrollToSection('contact')}>{t.nav.contact}</button>
+            <nav className={`nav ${menuOpen ? 'open' : ''}`}>
+              {navItems.map((item) => (
+                <button key={item.id} onClick={() => scrollToSection(item.id)}>
+                  {item.label}
+                </button>
+              ))}
             </nav>
 
             <div className="lang-switcher">
@@ -47,6 +58,16 @@ function Header() {
                 </button>
               ))}
             </div>
+
+            <button
+              className={`hamburger ${menuOpen ? 'open' : ''}`}
+              aria-label="menu"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
           </div>
         </div>
       </div>

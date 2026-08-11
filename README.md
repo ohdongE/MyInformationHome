@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# 자기소개 페이지 (Portfolio Site)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. 시스템 개요
 
-## Available Scripts
+컴퓨터전자공학과 학생 오성원의 포트폴리오를 소개하는 React 싱글페이지 웹사이트입니다. Hero부터 Contact까지 전 구간을 스크롤 스냅으로 한 섹션씩 넘기며 보여주고, 한국어·영어·일본어 3개 언어를 실시간으로 전환할 수 있으며, 자기소개를 위한 간단한 챗봇까지 포함하고 있습니다.
 
-In the project directory, you can run:
+**데이터 흐름**
 
-### `npm start`
+```
+사용자 언어 선택(KO/EN/JP) → LanguageContext → 각 섹션 컴포넌트(t.*)
+data/*.js (프로젝트·기술·자격증 목록) → 해당 섹션 컴포넌트 → 카드 렌더링
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Header의 언어 스위처에서 언어를 바꾸면 `LanguageContext`가 전역 상태로 들고 있는 번역 객체(`t`)가 갱신되고, 이를 구독하는 모든 컴포넌트가 즉시 다시 렌더링됩니다. 프로젝트·기술·자격증처럼 반복되는 데이터는 컴포넌트 안에 하드코딩하지 않고 `src/data/`의 별도 파일에서 불러와 렌더링합니다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 2. 페이지 섹션 구성 (`src/components`)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`Home.jsx`가 아래 순서로 섹션을 조립합니다.
 
-### `npm run build`
+| 컴포넌트 | 역할 |
+|---|---|
+| `Header` | 로고, 섹션 이동 네비게이션, 언어 스위처(KO/EN/JP). `position: sticky`로 항상 상단에 고정 |
+| `Hero` | 이름·역할·소개 문구, 프로필 사진, 배경에 떠다니는 블롭(blob) 애니메이션 |
+| `About` | 자기소개 문단과 강점 카드(도전/끈기/호기심/자신감) |
+| `Certifications` | 취득 예정 자격증 카드 + 기타 자격증 목록(더보기 토글) |
+| `Skills` | 카테고리별 기술 카드, 각 기술의 숙련도를 1~5 막대 그래프로 표시, 하단에 레벨 안내 범례 |
+| `Projects` | GitHub 저장소 기반 프로젝트 카드, 태그·GitHub/Demo 버튼 |
+| `Contact` | 이메일(클릭 시 클립보드 복사 카드로 확장), GitHub 링크 |
+| `Footer` | 섹션 바로가기, 저작권, 소셜 링크 |
+| `Chatbot` | 우측 하단 플로팅 버튼으로 여닫는 키워드 기반 스크립트 챗봇 |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 주요 함수
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **`Header.scrollToSection(id)`** — 클릭한 메뉴에 해당하는 섹션으로 부드럽게 스크롤
+- **`Certifications`의 `showAll` 상태** — 기타 자격증 목록을 4개만 보여주다가 "더보기" 클릭 시 전체 펼침
+- **`Contact`의 `emailOpen`/`copied` 상태** — 이메일 버튼 클릭 시 카드로 확장되며 주소 표시, 다시 클릭하면 `navigator.clipboard.writeText()`로 복사 후 "복사되었습니다!" 피드백을 보여주고 1.5초 뒤 원래 주소로 복귀
+- **`Chatbot.getReply(input, t)`** — 사용자 입력에 포함된 키워드(이름/프로젝트/기술/연락처 등)를 언어별 사전과 비교해 미리 정의된 답변을 반환
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 3. 다국어(i18n) 시스템 (`src/i18n`)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`translations.js`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 주요 변수
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| 변수 | 설명 |
+|---|---|
+| `translations` | `{ ko: {...}, en: {...}, ja: {...} }` 형태로 언어별 전체 텍스트를 담은 객체. 섹션별(`hero`, `about`, `skills` 등)로 구조화 |
+| `lang` | `LanguageContext`가 관리하는 현재 선택된 언어 코드. 기본값 `'ko'` |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 주요 함수
 
-## Learn More
+- **`LanguageProvider`** — 앱 최상단(`App.js`)을 감싸며 `lang`, `setLang`, `t`(현재 언어의 번역 객체)를 Context로 제공
+- **`useLanguage()`** — 각 컴포넌트에서 `const { t } = useLanguage();` 형태로 호출해 번역 텍스트에 접근하는 커스텀 훅
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+번역 대상은 소개 문구·섹션 제목처럼 사람이 쓴 문장 위주이며, 기술 스택 이름(React, Python 등)이나 자격증 발급기관처럼 고유명사 성격의 데이터는 언어와 무관하게 `src/data/`에 그대로 유지합니다.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 4. 데이터 관리 (`src/data`)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| 파일 | 내용 |
+|---|---|
+| `projects.js` | 실제 GitHub 저장소 기준 프로젝트 4건 (제목, 설명, 태그, GitHub/Demo 링크) |
+| `skills.js` | 카테고리(Languages/Frontend/AI/Database & Backend/Tools/Embedded Systems/Cloud)별 기술과 1~5 숙련도 레벨 |
+| `certifications.js` | 취득 예정 자격증과 기타 취득 자격증 목록(취득일 오래된 순 정렬) |
 
-### Analyzing the Bundle Size
+컴포넌트는 이 파일들을 import해서 그대로 순회(map)하며 카드를 그리므로, 프로젝트나 기술을 추가·수정할 때 컴포넌트 코드를 건드릴 필요 없이 데이터 파일만 고치면 됩니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 5. 핵심 설계 포인트
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **섹션 단위 풀스크린 스크롤**: 각 섹션에 `min-height: 100vh`와 `scroll-snap-align`을 적용해, 스크롤할 때 섹션 하나씩 자연스럽게 멈추도록 구성
+- **명암 교차 배경**: 흰색 배경 섹션과 `#f9f9f9` 섹션을 번갈아 배치하되, 카드 배경색을 섹션 배경과 반대로(흰 배경엔 회색 카드, 회색 배경엔 흰 카드) 설정해 카드가 항상 배경과 구분되도록 설계
+- **데이터-뷰 분리**: 프로젝트·기술·자격증을 컴포넌트에서 분리해 `src/data/`에 두어, 실제 이력이 바뀔 때 컴포넌트 로직 수정 없이 데이터만 갱신하면 되도록 함
+- **번역 범위의 선택적 적용**: 사람이 읽는 설명·문구는 3개 언어로 번역하되, 기술명·고유명사는 번역하지 않고 그대로 유지해 신뢰도와 일관성을 확보
