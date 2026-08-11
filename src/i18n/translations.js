@@ -1,0 +1,316 @@
+export const translations = {
+  ko: {
+    nav: {
+      home: 'Home',
+      about: 'About',
+      certifications: 'Certifications',
+      skills: 'Skills',
+      projects: 'Projects',
+      contact: 'Contact',
+    },
+    hero: {
+      name: '오성원',
+      role1: 'CS Student',
+      role2: 'Frontend · Embedded · AI Engineer',
+      description: '불가능이란 없습니다. 문제를 마주하면 해결책을 찾고, 아이디어가 있으면 현실로 만듭니다.',
+      btnPortfolio: '포트폴리오 보기',
+      btnContact: '연락하기',
+    },
+    about: {
+      label: 'About Me',
+      title: '저를 소개합니다',
+      intro: '컴퓨터전자공학을 전공하며 HW, SW 경계를 넘나드는 개발에 관심을 갖게 되었습니다. 최근 이슈인 AI와 IoT 기술을 접목시킨 기기들을 만들며 눈에 보이는 결과물에 재미를 느꼈고, AI를 두려움의 대상이 아닌 나를 강화해줄 개인 에이전트이자 도구로 활용하며 상상을 현실로 만들어가고 있습니다. 새로운 기술을 직접 부딪히며 배우는 것을 좋아합니다.',
+      strengths: [
+        {
+          title: '도전',
+          description: '남들이 하는 \'불가능\'이라는 말에 흔들리지 않습니다. 남들이 피하는 문제일수록 해결하면 제게 돌아오는 희열, 성취감은 힘듦을 잊게 하고, 불가능에 도전하게 만드는 이유라고 생각합니다.',
+        },
+        {
+          title: '끈기',
+          description: '내가 원하는 결과가 나올 때까지 손을 놓지 않습니다. 코드 한 줄, 회로 하나까지 원인을 찾고 파고들며, 실패는 멈출 이유가 아니라 배움이고 다음을 위한 선행학습이라고 생각합니다.',
+        },
+        {
+          title: '호기심',
+          description: '궁금한 게 생기거나 필요한 게 생기면 직접 만들며 배움을 일상에도 적용시키는 개발자입니다. 제가 뭘 할 수 있을지, 어떤 걸 만들 수 있을지 궁금하지 않으세요?',
+        },
+        {
+          title: '자신감',
+          description: '결과를 예상할 수 없어도 일단 시도합니다. 처음 해보는 기술이라도 \'성공한다\'라는 확신을 가지고 부딪힙니다. 그 확신이 결국 결과로 이어지는 경험을 여러 번 쌓아왔고, 항상 마지막에는 웃음을 보였던 기억이 남아있습니다.',
+        },
+      ],
+    },
+    certifications: {
+      label: 'Certifications',
+      title: '자격증',
+      othersTitle: '기타 자격증',
+      upcoming: '취득 예정',
+      showMore: '더보기',
+      showLess: '접기',
+    },
+    skills: {
+      label: 'Skills',
+      title: '다루는 기술',
+      legendTitle: '레벨 안내',
+      levels: [
+        '사용만 해봤음',
+        '간단한 기능을 구현할 수 있음',
+        '프로젝트에 활용할 수 있음',
+        '능숙하게 다룸',
+        '깊이 이해하고 있음',
+      ],
+    },
+    projects: {
+      label: 'Projects',
+      title: '프로젝트',
+      github: 'GitHub',
+      demo: 'Demo',
+    },
+    contact: {
+      label: 'Contact',
+      title: '연락처',
+      intro: '새로운 기회나 협업 제안은 언제든 환영합니다.',
+      email: 'Email',
+      copied: '복사되었습니다!',
+      github: 'GitHub',
+    },
+    footer: {
+      copyright: '© 2026 오성원. All rights reserved.',
+      email: 'Email',
+    },
+    chatbot: {
+      windowTitle: 'OSW Bot',
+      greeting: '안녕하세요! 오성원에 대해 궁금한 점을 물어보세요.',
+      placeholder: '메시지를 입력하세요...',
+      send: '전송',
+      defaultReply: '아직 배우는 중인 챗봇이라 정확히 답하지 못했어요. 곧 더 똑똑해질 예정입니다!',
+      scriptedReplies: [
+        {
+          keywords: ['이름', '누구'],
+          reply: '저는 오성원입니다. 컴퓨터전자공학을 전공하는 학생 개발자예요.',
+        },
+        {
+          keywords: ['프로젝트'],
+          reply: '아두이노/라즈베리파이 기반 IoT 프로젝트, React 웹 프로젝트, AI 프로젝트를 진행했어요. 아래 Projects 섹션에서 확인해보세요!',
+        },
+        {
+          keywords: ['기술', '스킬', 'skill'],
+          reply: 'Frontend, AI, Embedded Systems, Database & Backend, Cloud 등 다양한 기술을 다루고 있어요. Skills 섹션을 확인해보세요!',
+        },
+        {
+          keywords: ['연락', 'contact', '이메일'],
+          reply: 'Contact 섹션에서 이메일과 GitHub 링크를 확인하실 수 있어요.',
+        },
+      ],
+    },
+  },
+
+  en: {
+    nav: {
+      home: 'Home',
+      about: 'About',
+      certifications: 'Certifications',
+      skills: 'Skills',
+      projects: 'Projects',
+      contact: 'Contact',
+    },
+    hero: {
+      name: 'Oh Seongwon',
+      role1: 'CS Student',
+      role2: 'Embedded Systems · Frontend · AI Developer',
+      description: 'Nothing is impossible. When I face a problem, I find a solution — when I have an idea, I make it real.',
+      btnPortfolio: 'View Portfolio',
+      btnContact: 'Contact Me',
+    },
+    about: {
+      label: 'About Me',
+      title: 'Introducing Myself',
+      intro: 'Majoring in Computer & Electronics Engineering, I became interested in development that crosses the boundary between hardware and software. Building devices that combine AI and IoT — two of today\'s hottest fields — gave me the thrill of seeing tangible results. Rather than treating AI as something to fear, I use it as my own personal agent and tool that strengthens me, turning imagination into reality. I love learning new technologies by diving straight in.',
+      strengths: [
+        {
+          title: 'Challenge',
+          description: 'I don\'t let the word \'impossible\' shake me. The problems others avoid are exactly the ones worth solving — the thrill and sense of achievement that comes from solving them makes me forget the hardship and pushes me to keep taking on the impossible.',
+        },
+        {
+          title: 'Persistence',
+          description: 'I don\'t let go until I get the result I want. I dig into the cause down to a single line of code or a single circuit, and I see failure not as a reason to stop, but as learning — a head start on what comes next.',
+        },
+        {
+          title: 'Curiosity',
+          description: 'Whenever something sparks my curiosity or a need comes up, I build it myself and apply what I learn to everyday life. Curious what I can do, or what I can build?',
+        },
+        {
+          title: 'Confidence',
+          description: 'I try first, even when I can\'t predict the outcome. Even with a technology I\'m using for the first time, I dive in with the conviction that I \'will succeed.\' That conviction has led to real results many times over, and I always remember ending up with a smile.',
+        },
+      ],
+    },
+    certifications: {
+      label: 'Certifications',
+      title: 'Certifications',
+      othersTitle: 'Other Certifications',
+      upcoming: 'Upcoming',
+      showMore: 'Show more',
+      showLess: 'Show less',
+    },
+    skills: {
+      label: 'Skills',
+      title: 'Skills',
+      legendTitle: 'Level Guide',
+      levels: [
+        'Just tried it',
+        'Can implement simple features',
+        'Can use it in projects',
+        'Comfortable working with it',
+        'Deep understanding',
+      ],
+    },
+    projects: {
+      label: 'Projects',
+      title: 'Projects',
+      github: 'GitHub',
+      demo: 'Demo',
+    },
+    contact: {
+      label: 'Contact',
+      title: 'Contact',
+      intro: 'Always open to new opportunities and collaboration.',
+      email: 'Email',
+      copied: 'Copied!',
+      github: 'GitHub',
+    },
+    footer: {
+      copyright: '© 2026 Oh Seongwon. All rights reserved.',
+      email: 'Email',
+    },
+    chatbot: {
+      windowTitle: 'OSW Bot',
+      greeting: 'Hi! Ask me anything about Oh Seongwon.',
+      placeholder: 'Type a message...',
+      send: 'Send',
+      defaultReply: 'I\'m still learning, so I couldn\'t answer that precisely. I\'ll get smarter soon!',
+      scriptedReplies: [
+        {
+          keywords: ['name', 'who'],
+          reply: 'I\'m Oh Seongwon, a student developer majoring in Computer & Electronics Engineering.',
+        },
+        {
+          keywords: ['project'],
+          reply: 'I\'ve worked on Arduino/Raspberry Pi IoT projects, a React web project, and AI projects. Check out the Projects section below!',
+        },
+        {
+          keywords: ['skill', 'tech'],
+          reply: 'I work across Frontend, AI, Embedded Systems, Database & Backend, and Cloud. Check out the Skills section!',
+        },
+        {
+          keywords: ['contact', 'email'],
+          reply: 'You can find my email and GitHub link in the Contact section.',
+        },
+      ],
+    },
+  },
+
+  ja: {
+    nav: {
+      home: 'Home',
+      about: 'About',
+      certifications: 'Certifications',
+      skills: 'Skills',
+      projects: 'Projects',
+      contact: 'Contact',
+    },
+    hero: {
+      name: 'Oh Seongwon',
+      role1: 'CS Student',
+      role2: 'Embedded Systems · Frontend · AI Developer',
+      description: '不可能はありません。問題に直面したら解決策を見つけ、アイデアがあれば現実にします。',
+      btnPortfolio: 'ポートフォリオを見る',
+      btnContact: 'お問い合わせ',
+    },
+    about: {
+      label: 'About Me',
+      title: '自己紹介',
+      intro: 'コンピュータ電子工学を専攻し、HWとSWの境界を越える開発に興味を持つようになりました。最近話題のAIとIoT技術を組み合わせた機器を作りながら、目に見える成果に面白さを感じました。AIを恐れるのではなく、自分を強化してくれる個人エージェント兼ツールとして活用し、想像を現実に変えています。新しい技術を自ら体験しながら学ぶことが好きです。',
+      strengths: [
+        {
+          title: '挑戦',
+          description: '「不可能」という言葉に揺らぎません。人が避ける問題ほど、解決したときに得られる喜びと達成感が困難さを忘れさせ、不可能に挑む理由になると考えています。',
+        },
+        {
+          title: '粘り強さ',
+          description: '望む結果が出るまで手を止めません。コード一行、回路一つに至るまで原因を突き止め、失敗は止まる理由ではなく学びであり、次のための予習だと考えています。',
+        },
+        {
+          title: '好奇心',
+          description: '気になることや必要なことがあれば自分で作り、学びを日常にも活かす開発者です。私に何ができるか、何を作れるか気になりませんか?',
+        },
+        {
+          title: '自信',
+          description: '結果が予測できなくてもまず挑戦します。初めての技術でも「成功する」という確信を持って取り組みます。その確信が結果につながった経験を何度も積み重ねてきましたし、最後にはいつも笑顔になれた記憶があります。',
+        },
+      ],
+    },
+    certifications: {
+      label: 'Certifications',
+      title: '資格',
+      othersTitle: 'その他の資格',
+      upcoming: '取得予定',
+      showMore: 'もっと見る',
+      showLess: '閉じる',
+    },
+    skills: {
+      label: 'Skills',
+      title: '扱う技術',
+      legendTitle: 'レベルの目安',
+      levels: [
+        '使ってみた程度',
+        '簡単な機能を実装できる',
+        'プロジェクトで活用できる',
+        '使いこなせる',
+        '深く理解している',
+      ],
+    },
+    projects: {
+      label: 'Projects',
+      title: 'プロジェクト',
+      github: 'GitHub',
+      demo: 'デモ',
+    },
+    contact: {
+      label: 'Contact',
+      title: 'お問い合わせ',
+      intro: '新しい機会やコラボレーションのご提案、いつでも歓迎です。',
+      email: 'メール',
+      copied: 'コピーしました!',
+      github: 'GitHub',
+    },
+    footer: {
+      copyright: '© 2026 Oh Seongwon. All rights reserved.',
+      email: 'メール',
+    },
+    chatbot: {
+      windowTitle: 'OSW Bot',
+      greeting: 'こんにちは!Oh Seongwonについて気になることを聞いてください。',
+      placeholder: 'メッセージを入力してください...',
+      send: '送信',
+      defaultReply: 'まだ学習中のチャットボットなので正確に答えられませんでした。もうすぐ賢くなります!',
+      scriptedReplies: [
+        {
+          keywords: ['名前', '誰'],
+          reply: '私はOh Seongwonです。コンピュータ電子工学を専攻する学生エンジニアです。',
+        },
+        {
+          keywords: ['プロジェクト'],
+          reply: 'Arduino/Raspberry PiベースのIoTプロジェクト、Reactのウェブプロジェクト、AIプロジェクトを行いました。下のProjectsセクションをご覧ください!',
+        },
+        {
+          keywords: ['技術', 'スキル', 'skill'],
+          reply: 'Frontend、AI、Embedded Systems、Database & Backend、Cloudなど様々な技術を扱っています。Skillsセクションをご覧ください!',
+        },
+        {
+          keywords: ['連絡', 'contact', 'メール'],
+          reply: 'ContactセクションでメールとGitHubのリンクを確認できます。',
+        },
+      ],
+    },
+  },
+};

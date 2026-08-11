@@ -1,0 +1,38 @@
+export const projects = [
+  {
+    id: 1,
+    title: '오늘뭐해 (ToDayApp)',
+    description: '위치 기반 관광지 추천과 실시간 채팅을 하나로 묶은 안드로이드 앱입니다. 사용자의 GPS 좌표로 지역을 판별해 관광지를 추천하고, 같은 장소를 선택한 사람들이 좌표 기반 고유 채팅방에서 자연스럽게 만나 소통할 수 있게 만들었습니다. 이메일 인증 전까지는 임시 계정으로만 취급하는 Firebase Auth 인증 흐름을 직접 설계했고, 비활성 채팅방과 미인증 계정은 Cloud Functions가 자동으로 정리하도록 해 별도 관리 없이도 안정적으로 운영되도록 했습니다.',
+    category: 'mobile',
+    tags: ['Java', 'Android', 'Firebase', 'Firestore'],
+    github: 'https://github.com/ohdongE/ToDayApplication',
+    demo: '',
+  },
+  {
+    id: 2,
+    title: '특정 객체 자동조준 터렛',
+    description: '웹캠 영상에서 YOLOv8과 얼굴 인식으로 특정 인물을 실시간으로 골라내고, 화면 중심과의 오차를 시리얼 통신으로 아두이노에 전달해 서보모터가 대상을 부드럽게 따라가도록 만든 프로젝트입니다. 절대 각도가 아닌 상대 각도로 서보를 제어해 추적이 끊기지 않도록 했고, 조준 상태가 3초 이상 유지되면 자동으로 발사 신호를 보내도록 구현했습니다.',
+    category: 'embedded',
+    tags: ['Python', 'OpenCV', 'PyTorch', 'Arduino', 'C++'],
+    github: 'https://github.com/ohdongE/AutoAimingTurret',
+    demo: '',
+  },
+  {
+    id: 3,
+    title: '손 제스처 제어 시스템',
+    description: 'MediaPipe로 손가락 개수를 실시간으로 인식해 블루투스로 아두이노에 신호를 보내고, 인식된 제스처에 따라 LED·모터·부저·LCD를 각각 다르게 반응시키는 시스템입니다. 손이 화면에서 사라져 신호가 1초 이상 끊기면 별도의 정지 명령 없이도 자동으로 초기 상태로 복귀하도록 설계해, 손을 떼는 것만으로 안전하게 멈추도록 했습니다.',
+    category: 'embedded',
+    tags: ['Python', 'OpenCV', 'MediaPipe', 'Arduino', 'C'],
+    github: 'https://github.com/ohdongE/HandGestureController',
+    demo: '',
+  },
+  {
+    id: 4,
+    title: 'LocalCoderAgent',
+    description: 'Qwen2.5-Coder 모델을 한국어 코드 어시스턴트로 직접 LoRA 파인튜닝하고 Ollama로 배포한 로컬 AI 에이전트입니다. FastAPI로 인증과 요청 제한을 갖춘 웹 서버를 구축해 GPU 자원이 함부로 소모되지 않도록 했고, Cloudflare Tunnel로 실제 도메인에 연결해 로컬 환경을 벗어나 어디서든 접속할 수 있는 서비스 형태로 완성했습니다.',
+    category: 'ai',
+    tags: ['Python', 'PyTorch', 'FastAPI', 'Ollama', 'Cloudflare'],
+    github: 'https://github.com/ohdongE/LocalCoderAgent',
+    demo: '',
+  },
+];

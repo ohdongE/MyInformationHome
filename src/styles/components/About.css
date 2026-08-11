@@ -1,0 +1,115 @@
+.about {
+  position: relative;
+  padding: 120px 0;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  scroll-snap-align: start;
+}
+
+.about .section-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.about h2 {
+  color: var(--primary-color);
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 50px;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.about-intro {
+  font-size: 19px;
+  line-height: 1.9;
+  letter-spacing: 0.2px;
+  color: #333;
+  word-break: keep-all;
+}
+
+.about-strengths {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.strength-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  background: white;
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--border-color);
+  border-radius: 10px;
+  padding: 30px 36px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
+}
+
+.strength-card:hover {
+  transform: translateX(4px);
+  border-left-color: var(--primary-color);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.strength-number {
+  flex-shrink: 0;
+  width: 40px;
+  font-size: 26px;
+  font-weight: 900;
+  color: #ddd;
+  letter-spacing: -1px;
+  line-height: 1;
+  padding-top: 3px;
+}
+
+.strength-text h3 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.strength-text p {
+  color: var(--text-light);
+  font-size: 15px;
+  line-height: 1.75;
+  letter-spacing: 0.1px;
+  margin: 0;
+  word-break: keep-all;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 80px 0;
+  }
+
+  .about h2 {
+    font-size: 32px;
+  }
+
+  .about-intro {
+    font-size: 17px;
+  }
+
+  .strength-card {
+    padding: 24px;
+    gap: 18px;
+  }
+
+  .strength-number {
+    font-size: 22px;
+  }
+}
