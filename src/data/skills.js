@@ -10,7 +10,7 @@ export const skillCategories = [
     ],
   },
   {
-    category: 'Markup & Style',
+    category: 'Frontend',
     items: [
       { name: 'HTML', level: 3 },
       { name: 'CSS', level: 4 },
@@ -42,7 +42,7 @@ export const skillCategories = [
     ],
   },
   {
-    category: 'Server & Cloud',
+    category: 'Infrastructure',
     items: [
       { name: 'Cloudflare', level: 3 },
       { name: 'Vercel', level: 2 },
