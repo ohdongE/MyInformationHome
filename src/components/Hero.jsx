@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import '../styles/components/Hero.css';
 
+// Cloudflare Workers + KV 기반 방문자 카운터 (같은 방문자는 하루 1회만 집계)
+const VISITOR_API = 'https://visitor-counter.dhtjddnjs125.workers.dev';
+
 function Hero() {
   const { t } = useLanguage();
+  const [visitors, setVisitors] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(VISITOR_API)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data && typeof data.today === 'number') {
+          setVisitors(data.today);
+        }
+      })
+      .catch(() => {});   // 카운터 실패는 화면에 영향 없이 조용히 무시
+    return () => { cancelled = true; };
+  }, []);
 
   return (
     <section className="hero" id="home">
@@ -39,6 +56,10 @@ function Hero() {
                 {t.hero.btnContact}
               </button>
             </div>
+
+            {visitors !== null && (
+              <p className="hero-visitors">{t.hero.visitors(visitors)}</p>
+            )}
           </div>
         </div>
       </div>

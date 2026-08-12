@@ -15,6 +15,7 @@ export const translations = {
       description: '불가능이란 없습니다. 문제를 마주하면 해결책을 찾고, 아이디어가 있으면 현실로 만듭니다.',
       btnPortfolio: '포트폴리오 보기',
       btnContact: '연락하기',
+      visitors: (n) => `오늘 이 포트폴리오에 관심 있는 사람은 ${n}명 입니다.`,
     },
     about: {
       label: 'About Me',
@@ -120,6 +121,7 @@ export const translations = {
       description: 'Nothing is impossible. When I face a problem, I find a solution — when I have an idea, I make it real.',
       btnPortfolio: 'View Portfolio',
       btnContact: 'Contact Me',
+      visitors: (n) => `${n} ${n === 1 ? 'person has' : 'people have'} shown interest in this portfolio today.`,
     },
     about: {
       label: 'About Me',
@@ -225,6 +227,7 @@ export const translations = {
       description: '不可能はありません。問題に直面したら解決策を見つけ、アイデアがあれば現実にします。',
       btnPortfolio: 'ポートフォリオを見る',
       btnContact: 'お問い合わせ',
+      visitors: (n) => `今日このポートフォリオに関心を持った方は ${n} 名です。`,
     },
     about: {
       label: 'About Me',
