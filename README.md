@@ -18,7 +18,7 @@ Header의 언어 스위처에서 언어를 바꾸면 `LanguageContext`가 전역
 
 ## 2. 페이지 섹션 구성 (`src/components`)
 
-`Home.jsx`가 아래 순서로 섹션을 조립합니다.
+`src/pages/Home.jsx`가 아래 순서로 섹션을 조립합니다.
 
 | 컴포넌트 | 역할 |
 |---|---|
@@ -27,7 +27,8 @@ Header의 언어 스위처에서 언어를 바꾸면 `LanguageContext`가 전역
 | `About` | 자기소개 문단과 강점 카드(도전/끈기/호기심/자신감) |
 | `Certifications` | 취득 예정 자격증 카드 + 기타 자격증 목록(더보기 토글) |
 | `Skills` | 카테고리별 기술 카드, 각 기술의 숙련도를 1~5 막대 그래프로 표시, 하단에 레벨 안내 범례 |
-| `Projects` | GitHub 저장소 기반 프로젝트 카드, 태그·GitHub/Demo 버튼 |
+| `Projects` | 프로젝트 목록을 순회하며 `ProjectCard`를 배치 |
+| `ProjectCard` | 프로젝트 한 건의 카드. 제목·설명·태그와 GitHub/Demo 버튼 |
 | `Contact` | 이메일(클릭 시 클립보드 복사 카드로 확장), GitHub 링크 |
 | `Footer` | 섹션 바로가기, 저작권, 소셜 링크 |
 | `Chatbot` | 우측 하단 플로팅 버튼으로 여닫는 키워드 기반 스크립트 챗봇 |
@@ -66,7 +67,7 @@ Header의 언어 스위처에서 언어를 바꾸면 `LanguageContext`가 전역
 | 파일 | 내용 |
 |---|---|
 | `projects.js` | 실제 GitHub 저장소 기준 프로젝트 목록 (제목, 설명, 태그, GitHub/Demo 링크) |
-| `skills.js` | 카테고리(Languages/Frontend/AI/Database & Backend/Tools/Embedded Systems/Cloud)별 기술과 1~5 숙련도 레벨 |
+| `skills.js` | 카테고리(Languages/Frontend/Framework/AI/Database/Infrastructure/Embedded Systems/Tools)별 기술과 1~5 숙련도 레벨 |
 | `certifications.js` | 취득 예정 자격증과 기타 취득 자격증 목록(취득일 오래된 순 정렬) |
 
 컴포넌트는 이 파일들을 import해서 그대로 순회(map)하며 카드를 그리므로, 프로젝트나 기술을 추가·수정할 때 컴포넌트 코드를 건드릴 필요 없이 데이터 파일만 고치면 됩니다.
