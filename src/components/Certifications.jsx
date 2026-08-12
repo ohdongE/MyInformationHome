@@ -29,6 +29,7 @@ function Certifications() {
                 </svg>
               </div>
               
+              <span className="cert-status">{t.certifications.upcoming}</span>
               <h3>{cert.name}</h3>
               <p>{cert.org}</p>
             </div>
