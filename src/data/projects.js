@@ -41,7 +41,7 @@ export const projects = [
     description: '지금 보고 계신 이 사이트입니다. React로 직접 만든 싱글페이지 포트폴리오로, 한국어·영어·일본어 3개 언어를 실시간으로 전환하는 다국어 시스템과 섹션 단위 풀스크린 스크롤을 구현했습니다. 프로젝트·기술·자격증 데이터를 컴포넌트에서 분리해 관리하도록 설계했고, 완성된 사이트는 Cloudflare Pages에 배포해 실제 도메인으로 24시간 운영하고 있습니다.',
     category: 'web',
     tags: ['React', 'JavaScript', 'CSS', 'i18n', 'Cloudflare'],
-    github: 'https://github.com/ohdongE/MyInfomationHome',
+    github: 'https://github.com/ohdongE/MyInformationHome',
     demo: 'https://oswdev.cloud',
   },
 ];
