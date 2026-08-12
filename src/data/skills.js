@@ -6,15 +6,23 @@ export const skillCategories = [
       { name: 'Java', level: 3 },
       { name: 'C', level: 3 },
       { name: 'C++', level: 2 },
+      { name: 'JavaScript', level: 4 },
     ],
   },
   {
-    category: 'Frontend',
+    category: 'Markup & Style',
+    items: [
+      { name: 'HTML', level: 3 },
+      { name: 'CSS', level: 4 },
+    ],
+  },
+  {
+    category: 'Framework',
     items: [
       { name: 'React', level: 4 },
-      { name: 'HTML', level: 3 },
-      { name: 'JavaScript', level: 4 },
-      { name: 'CSS', level: 4 },
+      { name: 'Next.js', level: 2 },
+      { name: 'FastAPI', level: 3 },
+      { name: 'Node.js', level: 1 },
     ],
   },
   {
@@ -27,21 +35,19 @@ export const skillCategories = [
     ],
   },
   {
-    category: 'Database & Backend',
+    category: 'Database',
     items: [
       { name: 'MySQL', level: 1 },
       { name: 'Firebase DB', level: 3 },
-      { name: 'Firebase Auth', level: 3 },
-      { name: 'Node.js', level: 1 },
-      { name: 'FastAPI', level: 3 },
     ],
   },
   {
-    category: 'Tools',
+    category: 'Server & Cloud',
     items: [
-      { name: 'Git', level: 3 },
-      { name: 'GitHub', level: 3 },
-      { name: 'Notion', level: 1 },
+      { name: 'Cloudflare', level: 3 },
+      { name: 'Vercel', level: 2 },
+      { name: 'Firebase', level: 3 },
+      { name: 'Firebase Auth', level: 3 },
       { name: 'Docker', level: 1 },
     ],
   },
@@ -53,12 +59,11 @@ export const skillCategories = [
     ],
   },
   {
-    category: 'Cloud',
+    category: 'Tools',
     items: [
-      { name: 'Cloudflare', level: 3 },
-      { name: 'Oracle Cloud', level: 1 },
-      { name: 'AWS', level: 1 },
-      { name: 'Firebase', level: 3 },
+      { name: 'Git', level: 3 },
+      { name: 'GitHub', level: 3 },
+      { name: 'Notion', level: 1 },
     ],
   },
 ];
