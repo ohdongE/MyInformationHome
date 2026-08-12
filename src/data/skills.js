@@ -64,6 +64,7 @@ export const skillCategories = [
       { name: 'Git', level: 3 },
       { name: 'GitHub', level: 3 },
       { name: 'Notion', level: 1 },
+      { name: 'Android Studio', level: 4 },
     ],
   },
 ];
