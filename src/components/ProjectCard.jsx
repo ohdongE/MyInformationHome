@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import ProjectPreview from './ProjectPreview';
 
 function ProjectCard({ project }) {
   const { t } = useLanguage();
+  const [previewOpen, setPreviewOpen] = useState(false);
+
+  const shots = project.screenshots || [];
+  const hasPreview = shots.length > 0;
 
   return (
     <div className="project-card">
@@ -35,7 +40,21 @@ function ProjectCard({ project }) {
             <span className="link-btn-arrow">→</span>
           </a>
         )}
+        {hasPreview && (
+          <button className="link-btn link-btn-outline" onClick={() => setPreviewOpen(true)}>
+            {t.projects.preview}
+            <span className="link-btn-arrow">→</span>
+          </button>
+        )}
       </div>
+
+      {previewOpen && (
+        <ProjectPreview
+          title={project.title}
+          screenshots={shots}
+          onClose={() => setPreviewOpen(false)}
+        />
+      )}
     </div>
   );
 }

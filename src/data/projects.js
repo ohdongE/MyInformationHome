@@ -7,6 +7,16 @@ export const projects = [
     tags: ['Java', 'Android', 'Firebase', 'Firestore'],
     github: 'https://github.com/ohdongE/ToDayApplication',
     demo: '',
+    screenshots: [
+      { src: '/assets/screenshots/todayapp/02-home.jpg', caption: 'todayappHome' },
+      { src: '/assets/screenshots/todayapp/03-home-category-culture.jpg', caption: 'todayappCategory' },
+      { src: '/assets/screenshots/todayapp/04-home-current-location.jpg', caption: 'todayappLocation' },
+      { src: '/assets/screenshots/todayapp/30-home-active-room-badge.jpg', caption: 'todayappActiveRoom' },
+      { src: '/assets/screenshots/todayapp/26-chat-2-participants.jpg', caption: 'todayappChatRoom' },
+      { src: '/assets/screenshots/todayapp/29-chat-send-message.jpg', caption: 'todayappChatSend' },
+      { src: '/assets/screenshots/todayapp/16-signup-verify-link-sent.jpg', caption: 'todayappEmailVerify' },
+      { src: '/assets/screenshots/todayapp/24-profile-sheet.jpg', caption: 'todayappProfile' },
+    ],
   },
   {
     id: 2,
