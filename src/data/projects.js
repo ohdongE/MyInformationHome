@@ -53,6 +53,16 @@ export const projects = [
     tags: ['Swift', 'SwiftUI', 'iOS', 'WidgetKit'],
     github: 'https://github.com/ohdongE/WorkOutApplication',
     demo: '',
+    screenshots: [
+      { src: '/assets/screenshots/workout/01-home.jpg', caption: 'workoutHome' },
+      { src: '/assets/screenshots/workout/02-home-plan-select.jpg', caption: 'workoutPlanSelect' },
+      { src: '/assets/screenshots/workout/03-report-fatigue-map.jpg', caption: 'workoutFatigueMap' },
+      { src: '/assets/screenshots/workout/04-report-volume-radar.jpg', caption: 'workoutVolumeRadar' },
+      { src: '/assets/screenshots/workout/05-workout-session.jpg', caption: 'workoutSession' },
+      { src: '/assets/screenshots/workout/06-workout-ai-coach.jpg', caption: 'workoutAiCoach' },
+      { src: '/assets/screenshots/workout/07-inbody-history.jpg', caption: 'workoutInbodyHistory' },
+      { src: '/assets/screenshots/workout/08-inbody-ai-coach.jpg', caption: 'workoutInbodyCoach' },
+    ],
   },
   {
     id: 5,
