@@ -46,6 +46,15 @@ export const projects = [
     demo: '',
   },
   {
+    id: 6,
+    title: '워카웃 (WorkOut)',
+    description: 'SwiftUI로 만든 iOS 운동 기록 앱입니다. 운동 기록을 근육별 회복 속도로 감쇠시키는 피로도 모델과, 하나의 운동이 주동근·협응근에 주는 자극을 가중치로 분해하는 매핑 엔진을 직접 설계해 "지금 어느 부위가 얼마나 지쳤는지"를 인체 그림으로 보여줍니다. 홈·잠금화면 위젯과 다이나믹 아일랜드로 앱 밖에서도 회복 상태를 확인할 수 있고, 인바디 CSV를 불러와 체성분 변화를 4분면으로 분석하도록 했습니다. 외부 라이브러리 없이 순수 Apple 프레임워크만 사용했으며, SwiftUI와 앱 아키텍처를 직접 익히기 위한 학습용으로 제작한 프로젝트입니다.',
+    category: 'mobile',
+    tags: ['Swift', 'SwiftUI', 'iOS', 'WidgetKit'],
+    github: 'https://github.com/ohdongE/WorkOutApplication',
+    demo: '',
+  },
+  {
     id: 5,
     title: '자기소개 포트폴리오',
     description: '지금 보고 계신 이 사이트입니다. React로 직접 만든 싱글페이지 포트폴리오로, 한국어·영어·일본어 3개 언어를 실시간으로 전환하는 다국어 시스템과 섹션 단위 풀스크린 스크롤을 구현했습니다. 프로젝트·기술·자격증 데이터를 컴포넌트에서 분리해 관리하도록 설계했고, 완성된 사이트는 Cloudflare Pages에 배포해 실제 도메인으로 24시간 운영하고 있습니다.',

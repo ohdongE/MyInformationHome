@@ -21,6 +21,7 @@ export const skillCategories = [
     items: [
       { name: 'React', level: 4 },
       { name: 'Next.js', level: 2 },
+      { name: 'SwiftUI', level: 2 },
       { name: 'FastAPI', level: 3 },
       { name: 'Node.js', level: 1 },
     ],
@@ -64,6 +65,7 @@ export const skillCategories = [
       { name: 'Git', level: 3 },
       { name: 'GitHub', level: 3 },
       { name: 'Notion', level: 1 },
+      { name: 'Android Studio', level: 4 },
     ],
   },
 ];
