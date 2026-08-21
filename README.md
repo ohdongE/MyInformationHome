@@ -28,7 +28,8 @@ Header의 언어 스위처에서 언어를 바꾸면 `LanguageContext`가 전역
 | `Certifications` | 취득 예정 자격증 카드 + 기타 자격증 목록(더보기 토글) |
 | `Skills` | 카테고리별 기술 카드, 각 기술의 숙련도를 1~5 막대 그래프로 표시, 하단에 레벨 안내 범례 |
 | `Projects` | 프로젝트 목록을 순회하며 `ProjectCard`를 배치 |
-| `ProjectCard` | 프로젝트 한 건의 카드. 제목·설명·태그와 GitHub/Demo 버튼 |
+| `ProjectCard` | 프로젝트 한 건의 카드. 제목·설명·태그와 GitHub/Demo/Preview 버튼 |
+| `ProjectPreview` | 앱 화면을 넘겨 보는 갤러리 모달. 스크린샷이 등록된 프로젝트에서만 열림 |
 | `Contact` | 이메일(클릭 시 클립보드 복사 카드로 확장), GitHub 링크 |
 | `Footer` | 섹션 바로가기, 저작권, 소셜 링크 |
 | `Chatbot` | 우측 하단 플로팅 버튼으로 여닫는 키워드 기반 스크립트 챗봇 |
@@ -39,6 +40,7 @@ Header의 언어 스위처에서 언어를 바꾸면 `LanguageContext`가 전역
 - **`Certifications`의 `showAll` 상태** — 기타 자격증 목록을 4개만 보여주다가 "더보기" 클릭 시 전체 펼침
 - **`Contact`의 `emailOpen`/`copied` 상태** — 이메일 버튼 클릭 시 카드로 확장되며 주소 표시, 다시 클릭하면 `navigator.clipboard.writeText()`로 복사 후 "복사되었습니다!" 피드백을 보여주고 1.5초 뒤 원래 주소로 복귀
 - **`Chatbot.getReply(input, t)`** — 사용자 입력에 포함된 키워드(이름/프로젝트/기술/연락처 등)를 언어별 사전과 비교해 미리 정의된 답변을 반환
+- **`ProjectPreview`** — 좌우 버튼·방향키로 화면을 넘기고, ESC·배경 클릭·닫기 버튼으로 종료. 열려 있는 동안 `.App`의 스크롤을 잠갔다가 닫을 때 원복한다. 카드에는 hover 시 `transform`이 걸리는데, `transform`은 `position: fixed`의 기준을 뷰포트에서 그 요소로 바꿔 모달이 카드 안에 갇히므로 **포털로 `document.body`에 렌더링**한다
 
 ---
 
@@ -66,11 +68,21 @@ Header의 언어 스위처에서 언어를 바꾸면 `LanguageContext`가 전역
 
 | 파일 | 내용 |
 |---|---|
-| `projects.js` | 실제 GitHub 저장소 기준 프로젝트 목록 (제목, 설명, 태그, GitHub/Demo 링크) |
+| `projects.js` | 실제 GitHub 저장소 기준 프로젝트 목록 (제목, 설명, 태그, GitHub/Demo 링크, 선택적 `screenshots`) |
 | `skills.js` | 카테고리(Languages/Frontend/Framework/AI/Database/Infrastructure/Embedded Systems/Tools)별 기술과 1~5 숙련도 레벨 |
 | `certifications.js` | 취득 예정 자격증과 기타 취득 자격증 목록(취득일 오래된 순 정렬) |
 
 컴포넌트는 이 파일들을 import해서 그대로 순회(map)하며 카드를 그리므로, 프로젝트나 기술을 추가·수정할 때 컴포넌트 코드를 건드릴 필요 없이 데이터 파일만 고치면 됩니다.
+
+앱 화면 갤러리도 같은 방식입니다. 프로젝트 항목에 아래처럼 `screenshots`만 넣으면 그 카드에만 Preview 버튼이 생기고, 없는 프로젝트에는 버튼 자체가 나타나지 않습니다.
+
+```js
+screenshots: [
+  { src: '/assets/screenshots/<프로젝트>/<파일>.jpg', caption: '<캡션키>' },
+]
+```
+
+`caption`은 `translations`의 `projects.captions` 키를 가리키며, 키가 없으면 문자열을 그대로 출력하므로 번역이 필요 없는 경우에도 쓸 수 있습니다.
 
 ---
 
@@ -109,3 +121,4 @@ Hero 하단에 "오늘 이 포트폴리오에 관심 있는 사람은 N명 입�
 - **번역 범위의 선택적 적용**: 사람이 읽는 설명·문구는 3개 언어로 번역하되, 기술명·고유명사는 번역하지 않고 그대로 유지해 신뢰도와 일관성을 확보
 - **서버 없는 방문자 집계**: 숫자 하나를 기억하려고 상시 서버를 두는 대신 Workers + KV 조합으로 처리하고, 방문자 식별은 해시·TTL로 처리해 개인정보를 남기지 않도록 설계
 - **부가 기능의 실패 격리**: 방문자 수 조회가 실패해도 문구만 렌더링되지 않을 뿐 페이지 본문에는 영향이 없도록, 외부 호출을 화면 렌더링과 분리
+- **데이터로 켜지는 기능**: Preview 모달은 특정 프로젝트에 종속되지 않고 `screenshots` 데이터 유무로만 동작해, 다른 프로젝트에 화면을 추가할 때 컴포넌트 수정 없이 데이터만 넣으면 됨
