@@ -43,7 +43,7 @@ export const projects = [
     category: 'ai',
     tags: ['Python', 'PyTorch', 'FastAPI', 'Ollama', 'Cloudflare'],
     github: 'https://github.com/ohdongE/LocalCoderAgent',
-    demo: '',
+    demo: 'https://chat.oswdev.cloud',
   },
   {
     id: 6,
